@@ -1,0 +1,16 @@
+.mat-error {
+  font-family: Cambria, serif;
+  margin-top: 10px;
+}
+
+#main-user-div {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.mat-raised-button {
+  margin-top: 10px;
+}

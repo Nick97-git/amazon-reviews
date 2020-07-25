@@ -1,0 +1,22 @@
+.mat-error {
+  font-family: Cambria, serif;
+  margin-top: 10px;
+}
+
+.mat-stroked-button {
+  margin-left: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+p {
+  font-family: Cambria, serif;
+  font-size: larger;
+}

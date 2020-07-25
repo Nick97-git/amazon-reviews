@@ -6,18 +6,21 @@ import com.amazon.review.mapper.UserMapper;
 import com.amazon.review.model.User;
 import com.amazon.review.security.AuthenticationService;
 import com.amazon.review.security.jwt.JwtTokenProvider;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
     private final UserMapper userMapper;
@@ -36,6 +39,10 @@ public class AuthenticationController {
         String token = jwtTokenProvider.createToken(user.getLogin(), user.getRoles().stream()
                 .map(role -> role.getRoleName().name())
                 .collect(Collectors.toList()));
-        return new ResponseEntity<>(Map.of("token", token), HttpStatus.OK);
+        List<String> roles = user.getRoles().stream()
+                .map(role -> role.getRoleName().name())
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(Map.of("token", token,
+                "roles", roles), HttpStatus.OK);
     }
 }

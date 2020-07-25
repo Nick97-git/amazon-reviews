@@ -1,6 +1,5 @@
 package com.amazon.review.controller;
 
-import com.amazon.review.dto.ReviewDeleteDto;
 import com.amazon.review.dto.ReviewRequestDto;
 import com.amazon.review.dto.ReviewUpdateDto;
 import com.amazon.review.model.Product;
@@ -126,11 +125,7 @@ public class ReviewControllerTest {
     public void testDeleteReview() {
         Review review = reviewRepository.findById(1L).get();
         Assertions.assertEquals(1L, review.getId());
-        ReviewDeleteDto reviewDeleteDto = new ReviewDeleteDto();
-        reviewDeleteDto.setId(1L);
-        String json = gson.toJson(reviewDeleteDto);
-        mvc.perform(MockMvcRequestBuilders.delete(ENDPOINT)
-                .content(json)
+        mvc.perform(MockMvcRequestBuilders.delete(ENDPOINT + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());

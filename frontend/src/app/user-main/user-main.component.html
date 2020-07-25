@@ -1,0 +1,13 @@
+<div id="main-user-div" *ngIf="isUser()">
+  <div>
+    <button mat-raised-button color="warn" (click)="openAddReviewDialog()">
+      Add review
+    </button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="openUpdateReviewDialog()">
+      Update review
+    </button>
+  </div>
+  <mat-error>{{errors}}</mat-error>
+</div>

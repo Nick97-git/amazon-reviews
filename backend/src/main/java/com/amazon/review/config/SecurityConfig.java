@@ -58,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .apply(new JwtConfigurer(jwtTokenProvider))
                 .and()
                 .headers().frameOptions().disable();
+        http.cors();
     }
 
     @Bean

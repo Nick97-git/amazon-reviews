@@ -1,0 +1,42 @@
+<div id="main-admin-div" *ngIf="isAdmin()">
+  <div>
+    <button mat-raised-button color="primary" (click)="getMostActiveUsers()">
+      Most active users
+    </button>
+  </div>
+  <div>
+    <button mat-raised-button color="warn" (click)="getMostCommentedProducts()">
+      Most commented products
+    </button>
+  </div>
+  <div>
+    <button mat-raised-button color="accent" (click)="getMostUsedWords()">
+      Most used words
+    </button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="openDeleteReviewDialog()">
+      Delete review
+    </button>
+  </div>
+  <div>
+    <mat-error>{{errors}}</mat-error>
+  </div>
+  <div class="mat-elevation-z8" [hidden]="arr.length <= 0">
+    <div style="background-color: aquamarine">
+      <button id="remove-table-button" mat-raised-button color="warn" (click)="hideTable()">
+        Remove table
+      </button>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> {{columnName}} </th>
+        <td mat-cell *matCellDef="let element">{{element}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

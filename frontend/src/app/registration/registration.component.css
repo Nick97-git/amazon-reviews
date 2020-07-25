@@ -1,0 +1,13 @@
+.mat-error {
+  font-family: Cambria, serif;
+  margin-top: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}

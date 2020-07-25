@@ -1,11 +1,14 @@
 package com.amazon.review.service.impl;
 
+import com.amazon.review.exception.ProductNotFoundException;
 import com.amazon.review.model.Product;
 import com.amazon.review.repository.ProductRepository;
 import com.amazon.review.service.ProductService;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +33,13 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll(pageRequest);
     }
 
+    @SneakyThrows
     @Override
     public Product findById(String productId) {
-        return productRepository.findById(productId).get();
+        Optional<Product> product = productRepository.findById(productId);
+        if (product.isEmpty()) {
+            throw new ProductNotFoundException("Incorrect product id!");
+        }
+        return product.get();
     }
 }
