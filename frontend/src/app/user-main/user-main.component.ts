@@ -29,7 +29,7 @@ export class UserMainComponent implements OnInit {
   openAddReviewDialog() {
     this.errors = ""
     const dialog = this.dialog.open(AddReviewDialogComponent, {
-      width: '300px',
+      width: '230px',
       data: {summary: this.summary, text: this.text, productId: this.productId}
     });
 
@@ -46,7 +46,7 @@ export class UserMainComponent implements OnInit {
   openUpdateReviewDialog() {
     this.errors = ""
     const dialog = this.dialog.open(UpdateReviewDialogComponent, {
-      width: '300px',
+      width: '230px',
       data: {summary: this.summary, text: this.text}
     });
 
