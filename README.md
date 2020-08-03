@@ -64,10 +64,10 @@ Pressing OK button you will get data in table form that divided on pages by 10 e
 You can change number of elements per page from 5 to 20 elements. Ok now we can logout. Click 'Logout' button, and it will automatically redirect on http://localhost:4200/login. Now let's examine main page as user with role USER:
 ![](images/main-user-page.png)
 You can add review and update your review. Pressing 'Add review' button you again get dialog that you must fill in: 
-![](images/add-review-dialog.PNG)
+![](images/add-review-dialog.png)
 Product ID you can get from file: backend\src\main\resources\reviews.csv.
 And when you want to update text of your review you also need to fill in data in dialog window, where review will be searching by its summary:
-![](images/update-review-dialog.PNG)   
+![](images/update-review-dialog.png)   
   
 # <a name="author"></a>Author
 
