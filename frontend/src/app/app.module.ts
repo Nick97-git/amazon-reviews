@@ -1,17 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { RegistrationComponent } from './registration/registration.component';
-import { MainComponent } from './main/main.component';
+import {RegistrationComponent} from './registration/registration.component';
+import {MainComponent} from './main/main.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./http/auth-interceptor";
-import { LogoutComponent } from './logout/logout.component';
+import {LogoutComponent} from './logout/logout.component';
 import {AdminMainComponent} from './admin-main/admin-main.component';
-import { UserMainComponent } from './user-main/user-main.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {UserMainComponent} from './user-main/user-main.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -42,23 +42,23 @@ import {MatCardModule} from "@angular/material/card";
     AddReviewDialogComponent,
     UpdateReviewDialogComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatLineModule,
-        MatDialogModule,
-        FormsModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatCardModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatLineModule,
+    MatDialogModule,
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -71,4 +71,5 @@ import {MatCardModule} from "@angular/material/card";
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+}
