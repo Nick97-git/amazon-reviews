@@ -1,0 +1,28 @@
+#main-admin-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100px;
+}
+
+#remove-table-button {
+  margin-top: 10px; margin-bottom: 10px
+}
+.mat-error {
+  font-family: Cambria, serif;
+  margin-top: 10px;
+}
+
+.mat-paginator {
+  width: 350px;
+}
+
+.mat-table {
+  width: 350px;
+}
+
+.mat-raised-button {
+  margin-top: 10px;
+}

@@ -1,0 +1,16 @@
+.mat-error {
+  font-family: Cambria, serif;
+  margin-top: 10px;
+}
+
+mat-card {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 250px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+}

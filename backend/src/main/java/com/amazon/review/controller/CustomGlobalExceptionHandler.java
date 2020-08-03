@@ -1,6 +1,8 @@
 package com.amazon.review.controller;
 
 import com.amazon.review.exception.AuthenticationException;
+import com.amazon.review.exception.ProductNotFoundException;
+import com.amazon.review.exception.ReviewNotFoundException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -36,10 +38,27 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     }
 
     @ExceptionHandler(AuthenticationException.class)
-    public ResponseEntity<Object> handleAuthenticationException(Exception exception) {
+    public ResponseEntity<Object> handleAuthenticationException(
+            AuthenticationException exception) {
+        return getResponseEntity(exception.getMessage());
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<Object> handleProductNotFoundException(
+            ProductNotFoundException exception) {
+        return getResponseEntity(exception.getMessage());
+    }
+
+    @ExceptionHandler(ReviewNotFoundException.class)
+    public ResponseEntity<Object> handleReviewNotFoundException(
+            ReviewNotFoundException exception) {
+        return getResponseEntity(exception.getMessage());
+    }
+
+    private ResponseEntity<Object> getResponseEntity(String message) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now().toString());
-        body.put("error", exception.getMessage());
+        body.put("error", message);
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 }

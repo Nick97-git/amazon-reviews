@@ -12,6 +12,7 @@ public class PasswordsValueMatchValidator implements
             constraintValidatorContext) {
         String password = userRegistrationDto.getPassword();
         String repeatPassword = userRegistrationDto.getRepeatPassword();
-        return password != null && password.equals(repeatPassword);
+        return password != null && password.length() != 0
+                && password.equals(repeatPassword);
     }
 }

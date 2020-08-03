@@ -1,5 +1,6 @@
 package com.amazon.review.service.impl;
 
+import com.amazon.review.exception.ReviewNotFoundException;
 import com.amazon.review.model.Review;
 import com.amazon.review.repository.ReviewRepository;
 import com.amazon.review.service.ReviewService;
@@ -11,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -38,14 +40,23 @@ public class ReviewServiceImpl implements ReviewService {
                 .collect(Collectors.toList());
     }
 
+    @SneakyThrows
     @Override
     public void deleteById(Long id) {
+        if (reviewRepository.findById(id).isEmpty()) {
+            throw new ReviewNotFoundException("Incorrect review id!");
+        }
         reviewRepository.deleteById(id);
     }
 
+    @SneakyThrows
     @Override
     public Review findByUserLoginAndSummary(String login, String summary) {
-        return reviewRepository.findByUserLoginAndSummary(login, summary);
+        Review review = reviewRepository.findByUserLoginAndSummary(login, summary);
+        if (review == null) {
+            throw new ReviewNotFoundException("Incorrect summary of review!");
+        }
+        return review;
     }
 
     private List<String> sortWords(List<String> allTexts) {

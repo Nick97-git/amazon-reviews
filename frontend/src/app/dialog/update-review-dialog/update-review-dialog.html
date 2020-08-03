@@ -1,0 +1,21 @@
+<div mat-dialog-content>
+  <p>Fill in info for update your review: </p>
+  <mat-form-field>
+    <mat-label>Summary</mat-label>
+    <input matInput [(ngModel)]="data.summary">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Text</mat-label>
+    <textarea matInput [(ngModel)]="data.text"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="[data.summary, data.text]">
+    OK
+  </button>
+  <button mat-button (click)="onCancel()">
+    Cancel
+  </button>
+</div>
