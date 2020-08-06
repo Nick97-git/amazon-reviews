@@ -43,10 +43,16 @@ Front-end:
 
 1. Install Docker Desktop and register on DockerHub
 
-2. Run next command in terminal from main directory: 
+2. At docker-compose.yml use your username (POSTGRES_USER) 
+and password (POSTGRES_PASSWORD) for PostgreSQL Server to create a connection.
+
+3. Run next command in terminal from backend directory:
+* mvn clean package
+
+4. Run next command in terminal from main directory: 
 * docker-compose up --build
 
-3. Open your browser on http://localhost:4200.   
+5. Open your browser on http://localhost:4200.   
 
 # <a name="instruction"></a>Instruction
 After opening browser on http://localhost:4200 you will automatically be redirect on http://localhost:4200/login:

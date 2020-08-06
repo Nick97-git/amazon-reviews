@@ -40,7 +40,7 @@ As admin you can delete review, and get some statistic by reviews: most active u
 4. At src\main\resources\application.properties use your username (spring.datasource.username) 
 and password (spring.datasource.password) for PostgreSQL Server to create a connection.
 
-5. Change a path to log file at src\main\resources\application.properties - logging.file.name.
+5. Change a path to log file at src\main\resources\application.properties if you want - logging.file.name.
 
 6. Run the project.
 
@@ -48,7 +48,11 @@ and password (spring.datasource.password) for PostgreSQL Server to create a conn
 
 1. Install Docker Desktop and register on DockerHub
 
-2. Run next command in terminal from backend directory: 
+2. At docker-compose.yml use your username (POSTGRES_USER) 
+and password (POSTGRES_PASSWORD) for PostgreSQL Server to create a connection.
+
+3. Run next commands in terminal from backend directory: 
+* mvn clean package
 * docker-compose up --build
 
 # <a name = "test"></a>Test project
